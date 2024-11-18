@@ -3,6 +3,7 @@ package gutierrezruiz.francisco;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,10 +12,10 @@ import java.util.List;
 
 public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.PersonajeViewHolder> {
 
-    private final List<Personaje> misPersonajes;
+    private final List<Personaje> listaPersonajes;
 
-    public PersonajeAdapter(List<Personaje> misPersonajes) {
-        this.misPersonajes = misPersonajes;
+    public PersonajeAdapter(List<Personaje> listaPersonajes) {
+        this.listaPersonajes = listaPersonajes;
     }
 
     @NonNull
@@ -26,25 +27,25 @@ public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.Pers
 
     @Override
     public void onBindViewHolder(@NonNull PersonajeViewHolder holder, int position) {
-        Personaje personaje = misPersonajes.get(position);
-        holder.nameTextView.setText(personaje.getNombre());
-        holder.descriptionTextView.setText(personaje.getDescripcion());
+        Personaje personaje = listaPersonajes.get(position);
+        holder.nombreTextView.setText(personaje.getNombre());
+        holder.imagenImageView.setImageResource(personaje.getImagenId());
     }
 
     @Override
     public int getItemCount() {
-        return misPersonajes.size();
+        return listaPersonajes.size();
     }
 
     public static class PersonajeViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView nameTextView;
-        public TextView descriptionTextView;
+        public TextView nombreTextView;
+        public ImageView imagenImageView;
 
         public PersonajeViewHolder(View itemView) {
             super(itemView);
-            nameTextView = itemView.findViewById(R.id.textViewNombre);
-            descriptionTextView = itemView.findViewById(R.id.textViewDescripcion);
+            nombreTextView = itemView.findViewById(R.id.textViewNombrePersonaje);
+            imagenImageView = itemView.findViewById(R.id.imageViewPersonaje);
         }
     }
 }
