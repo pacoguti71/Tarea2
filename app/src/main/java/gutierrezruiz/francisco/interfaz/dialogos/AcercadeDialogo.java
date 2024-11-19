@@ -1,4 +1,4 @@
-package gutierrezruiz.francisco;
+package gutierrezruiz.francisco.interfaz.dialogos;
 
 import android.app.Dialog;
 import android.content.pm.PackageInfo;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
+
+import gutierrezruiz.francisco.R;
 
 /**
  * Acercade dialogo.

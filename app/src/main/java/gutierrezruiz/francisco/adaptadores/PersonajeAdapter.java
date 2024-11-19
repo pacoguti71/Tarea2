@@ -1,4 +1,4 @@
-package gutierrezruiz.francisco;
+package gutierrezruiz.francisco.adaptadores;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+
+import gutierrezruiz.francisco.R;
+import gutierrezruiz.francisco.datos.Personaje;
 
 public class PersonajeAdapter extends RecyclerView.Adapter<PersonajeAdapter.PersonajeViewHolder> {
 

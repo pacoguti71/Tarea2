@@ -1,9 +1,13 @@
-package gutierrezruiz.francisco;
+package gutierrezruiz.francisco.interfaz.activitys;
 
 import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import gutierrezruiz.francisco.R;
+import gutierrezruiz.francisco.interfaz.fragments.RecyclerViewFragment;
+import gutierrezruiz.francisco.interfaz.dialogos.AcercadeDialogo;
 
 public class MainActivity extends AppCompatActivity {
 

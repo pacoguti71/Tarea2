@@ -1,4 +1,4 @@
-package gutierrezruiz.francisco;
+package gutierrezruiz.francisco.interfaz.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,12 +19,12 @@ public class DetallesPersonajeFragment extends Fragment {
         binding = FragmentDetallesPersonajeBinding.inflate(inflater, container, false);
 
         // Obtiene los datos del Bundle (pasados como argumentos)
-        Bundle args = getArguments();
-        if (args != null) {
-            String nombre = args.getString("nombre");
-            int imagenId = args.getInt("imagen", 0);
-            String descripcion = args.getString("descripcion");
-            String habilidad = args.getString("habilidad");
+        Bundle elementosPersonaje = getArguments();
+        if (elementosPersonaje != null) {
+            String nombre = elementosPersonaje.getString("nombre");
+            int imagenId = elementosPersonaje.getInt("imagen", 0);
+            String descripcion = elementosPersonaje.getString("descripcion");
+            String habilidad = elementosPersonaje.getString("habilidad");
 
             // Configura los datos directamente usando View Binding
             binding.textViewNombre.setText(nombre);

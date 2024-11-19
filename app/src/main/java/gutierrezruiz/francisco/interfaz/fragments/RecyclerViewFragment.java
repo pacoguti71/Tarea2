@@ -1,4 +1,4 @@
-package gutierrezruiz.francisco;
+package gutierrezruiz.francisco.interfaz.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import gutierrezruiz.francisco.adaptadores.PersonajeAdapter;
+import gutierrezruiz.francisco.R;
+import gutierrezruiz.francisco.datos.Personaje;
 
 public class RecyclerViewFragment extends Fragment {
 
@@ -41,12 +45,12 @@ public class RecyclerViewFragment extends Fragment {
 
             // Crea un nuevo fragmento y pasa los datos del personaje
             Fragment detallesPersonajeFragment = new DetallesPersonajeFragment();
-            Bundle args = new Bundle();
-            args.putString("nombre", personaje.getNombre());
-            args.putInt("imagen", personaje.getImagenId());
-            args.putString("descripcion", personaje.getDescripcion());
-            args.putString("habilidad", personaje.getHabilidad());
-            detallesPersonajeFragment.setArguments(args);
+            Bundle elementosPersonaje = new Bundle();
+            elementosPersonaje.putString("nombre", personaje.getNombre());
+            elementosPersonaje.putInt("imagen", personaje.getImagenId());
+            elementosPersonaje.putString("descripcion", personaje.getDescripcion());
+            elementosPersonaje.putString("habilidad", personaje.getHabilidad());
+            detallesPersonajeFragment.setArguments(elementosPersonaje);
 
             // Reemplaza el fragmento actual con el de detalles
             getParentFragmentManager().beginTransaction()

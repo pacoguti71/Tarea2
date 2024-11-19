@@ -1,4 +1,4 @@
-package gutierrezruiz.francisco;
+package gutierrezruiz.francisco.datos;
 
 /**
  * @author Francisco Gutiérrez Ruiz
