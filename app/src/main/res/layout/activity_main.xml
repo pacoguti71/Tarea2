@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
 
     <!-- Barra superior (Toolbar) -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -27,7 +29,9 @@
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Menú lateral -->

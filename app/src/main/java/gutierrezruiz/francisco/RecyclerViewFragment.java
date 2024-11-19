@@ -9,28 +9,56 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewFragment extends Fragment {
 
-    private RecyclerView recyclerView;
-    private List<Personaje> listaPersonajes = new ArrayList<>();
-    private PersonajeAdapter adapter;
+    private final List<Personaje> listaPersonajes = new ArrayList<>();
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Infla el diseño del fragment
         View rootView = inflater.inflate(R.layout.fragment_recycler_view, container, false);
 
-        recyclerView = rootView.findViewById(R.id.recyclerView);
+        // Configura el RecyclerView
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // Configura la lista de personajes
         iniciarListaPersonajes();
 
-        adapter = new PersonajeAdapter(listaPersonajes);
+        // Configura el adaptador
+        PersonajeAdapter adapter = new PersonajeAdapter(listaPersonajes);
         recyclerView.setAdapter(adapter);
+
+        // Configura el OnClickListener para cuando pulsa en un personaje
+        adapter.setOnClickListener(view -> {
+            // Obtiene el personaje seleccionado
+            int posicion = recyclerView.getChildAdapterPosition(view);
+            Personaje personaje = listaPersonajes.get(posicion);
+
+            // Crea un nuevo fragment y pasa los datos del personaje
+            Fragment detallesPersonajeFragment = new DetallesPersonajeFragment();
+            Bundle args = new Bundle();
+            args.putString("nombre", personaje.getNombre());
+            args.putInt("imagen", personaje.getImagenId());
+            args.putString("descripcion", personaje.getDescripcion());
+            args.putString("habilidad", personaje.getHabilidad());
+            detallesPersonajeFragment.setArguments(args);
+
+            // Reemplaza el fragment actual con el fragment de detalles
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, detallesPersonajeFragment)
+                    .addToBackStack(null)
+                    .commit();
+
+            // Muestra un Toast con el nombre del personaje seleccionado
+            Toast.makeText(getContext(), getString(R.string.mensaje_toast, personaje.getNombre()), Toast.LENGTH_SHORT).show();
+        });
 
         return rootView;
     }

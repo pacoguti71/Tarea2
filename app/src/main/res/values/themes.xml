@@ -1,5 +1,8 @@
 <resources>
-    <style name="Base.Theme.PMDMTarea2mia" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Tema base sin barra de acción -->
+    <style name="Base.Theme.PMDMTarea2mia" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
+
+    <!-- Tema principal que hereda del tema base -->
     <style name="Theme.PMDMTarea2mia" parent="Base.Theme.PMDMTarea2mia" />
 </resources>
