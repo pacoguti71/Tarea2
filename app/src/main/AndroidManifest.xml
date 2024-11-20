@@ -9,18 +9,25 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:theme="@style/Theme.PMDMTarea2mia"
         android:supportsRtl="true"
+        android:theme="@style/Theme.PMDMTarea2mia"
         tools:targetApi="31">
+
         <activity
-            android:name=".interfaz.activitys.MainActivity"
+            android:name=".interfaz.activitys.PresentacionActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".interfaz.activitys.MainActivity"
+            android:exported="true">
+
+        </activity>
+
     </application>
 
 </manifest>

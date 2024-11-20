@@ -1,13 +1,18 @@
 package gutierrezruiz.francisco.interfaz.activitys;
 
 import android.os.Bundle;
+import android.view.View;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import gutierrezruiz.francisco.R;
 import gutierrezruiz.francisco.interfaz.fragments.RecyclerViewFragment;
 import gutierrezruiz.francisco.interfaz.dialogos.AcercadeDialogo;
+import gutierrezruiz.francisco.util.PreferencesHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,13 +28,27 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Muestra el RecyclerViewFragment al iniciar la actividad
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new RecyclerViewFragment())
-                    .commit();
-        }
+        // Configura el snackbar
+        View rootView = findViewById(android.R.id.content);
+        // Muestra el snackbar
+        Snackbar.make(rootView, getString(R.string.mensajeSnack), Snackbar.LENGTH_SHORT).show();
+
+//        // Muestra el RecyclerViewFragment al iniciar la actividad. De la forma antigua
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.fragment_container, new RecyclerViewFragment())
+//                    .commit();
+//        }
+
+        // Muestra el RecyclerViewFragment al iniciar la actividad. De la forma nueva
+
+
+
+
     }
+
+
+
 
     @Override
     // Crea el menú de opciones
@@ -48,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             AcercadeDialogo acercadeDialogo = new AcercadeDialogo();
             acercadeDialogo.show(getSupportFragmentManager(), "acercade_dialogo");
             return true;
+            //Lo he incluido para que no tenga sólo una opción
         } else if (itemId == R.id.action_salir) {
             finishAffinity();
             return true;
@@ -55,4 +75,13 @@ public class MainActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
         }
     }
+
+    //Para el drawer
+    // PreferencesHelper.saveIdioma(this, "es");
+    // PreferencesHelper.saveModo(this, "true");
+
+
+
+
+
 }

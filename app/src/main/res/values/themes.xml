@@ -4,5 +4,6 @@
     </style>
 
     <!-- Tema principal que hereda del tema base -->
-    <style name="Theme.PMDMTarea2mia" parent="Base.Theme.PMDMTarea2mia" />
+    <style name="Theme.PMDMTarea2mia" parent="Base.Theme.PMDMTarea2mia">
+    </style>
 </resources>

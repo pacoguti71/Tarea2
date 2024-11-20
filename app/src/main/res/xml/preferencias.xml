@@ -3,16 +3,16 @@
 
     <SwitchPreference
         android:defaultValue="true"
-        android:key="Idioma"
-        android:summary="Desactivar para idioma en inglés"
-        android:title="Idioma">
+        android:title="Idioma"
+        android:key="idioma"
+        android:summary="Desactivar para idioma en inglés">
     </SwitchPreference>
 
     <SwitchPreference
         android:defaultValue="true"
-        android:key="Modo"
-        android:summary="Desactivar para modo oscuro"
-        android:title="Modo">
+        android:title="Modo"
+        android:key="modo"
+        android:summary="Desactivar para modo oscuro">
     </SwitchPreference>
 
 </androidx.preference.PreferenceScreen>
